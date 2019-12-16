@@ -1,43 +1,9 @@
 [
   {
-    "tariffNo": 0,
-    "name": "Super Unlim",
-    "operatorName": "Kyivstar",
-    "payroll": 250,
-    "callPrices": {
-      "inside": 0,
-      "outside": 10,
-      "landlinePhone": 20
-    },
-    "smsPrice": 15,
-    "parameters": {
-      "favoriteNumbers": 5,
-      "tariffing": "PER_1_MINUTE",
-      "connectionPayment": 25.5
-    }
-  },
-  {
-    "tariffNo": 1,
-    "name": "Super Net",
-    "operatorName": "Kyivstar",
-    "payroll": 300,
-    "callPrices": {
-      "inside": 0,
-      "outside": 35,
-      "landlinePhone": 45
-    },
-    "smsPrice": 20,
-    "parameters": {
-      "favoriteNumbers": 2,
-      "tariffing": "PER_15_SECONDS",
-      "connectionPayment": 14.99
-    }
-  },
-  {
     "tariffNo": 2,
     "name": "4G Smart",
     "operatorName": "Vodafone",
-    "payroll": 150,
+    "payroll": 150.0,
     "callPrices": {
       "inside": 10,
       "outside": 80,
@@ -54,7 +20,7 @@
     "tariffNo": 3,
     "name": "Bomba",
     "operatorName": "Lifecell",
-    "payroll": 100,
+    "payroll": 100.0,
     "callPrices": {
       "inside": 0,
       "outside": 50,
@@ -64,14 +30,14 @@
     "parameters": {
       "favoriteNumbers": 4,
       "tariffing": "PER_15_SECONDS",
-      "connectionPayment": 0
+      "connectionPayment": 0.0
     }
   },
   {
     "tariffNo": 4,
     "name": "Business",
     "operatorName": "Lifecell",
-    "payroll": 350,
+    "payroll": 350.0,
     "callPrices": {
       "inside": 0,
       "outside": 10,
@@ -81,7 +47,41 @@
     "parameters": {
       "favoriteNumbers": 10,
       "tariffing": "PER_1_MINUTE",
-      "connectionPayment": 10
+      "connectionPayment": 10.0
+    }
+  },
+  {
+    "tariffNo": 1,
+    "name": "Super Net",
+    "operatorName": "Kyivstar",
+    "payroll": 300.0,
+    "callPrices": {
+      "inside": 0,
+      "outside": 35,
+      "landlinePhone": 45
+    },
+    "smsPrice": 20,
+    "parameters": {
+      "favoriteNumbers": 2,
+      "tariffing": "PER_15_SECONDS",
+      "connectionPayment": 14.99
+    }
+  },
+  {
+    "tariffNo": 0,
+    "name": "Super Unlim",
+    "operatorName": "Kyivstar",
+    "payroll": 250.0,
+    "callPrices": {
+      "inside": 0,
+      "outside": 10,
+      "landlinePhone": 20
+    },
+    "smsPrice": 15,
+    "parameters": {
+      "favoriteNumbers": 5,
+      "tariffing": "PER_1_MINUTE",
+      "connectionPayment": 25.5
     }
   }
 ]
