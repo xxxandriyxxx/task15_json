@@ -1,0 +1,88 @@
+[
+  {
+    "tariffNo": 0,
+    "name": "Super Unlim",
+    "operator_name": "Kyivstar",
+    "payroll": 250,
+    "call_prices": {
+      "inside": 0,
+      "outside": 10,
+      "landline_phone": 20
+    },
+    "sms_price": 15,
+    "parameters": {
+      "favorite_numbers": 5,
+      "tariffing": "per_1_minute",
+      "connection_payment": 25.50
+    }
+  },
+  {
+    "tariffNo": 1,
+    "name": "Super Net",
+    "operator_name": "Kyivstar",
+    "payroll": 300,
+    "call_prices": {
+      "inside": 0,
+      "outside": 35,
+      "landline_phone": 45
+    },
+    "sms_price": 20,
+    "parameters": {
+      "favorite_numbers": 2,
+      "tariffing": "per_15_seconds",
+      "connection_payment": 14.99
+    }
+  },
+  {
+    "tariffNo": 2,
+    "name": "4G Smart",
+    "operator_name": "Vodafone",
+    "payroll": 150,
+    "call_prices": {
+      "inside": 10,
+      "outside": 80,
+      "landline_phone": 99
+    },
+    "sms_price": 50,
+    "parameters": {
+      "favorite_numbers": 1,
+      "tariffing": "per_1_minute",
+      "connection_payment": 5.50
+    }
+  },
+  {
+    "tariffNo": 3,
+    "name": "Bomba",
+    "operator_name": "Lifecell",
+    "payroll": 100,
+    "call_prices": {
+      "inside": 0,
+      "outside": 50,
+      "landline_phone": 50
+    },
+    "sms_price": 49,
+    "parameters": {
+      "favorite_numbers": 4,
+      "tariffing": "per_15_seconds",
+      "connection_payment": 0
+    }
+  },
+  {
+    "tariffNo": 4,
+    "name": "Business",
+    "operator_name": "Lifecell",
+    "payroll": 350,
+    "call_prices": {
+      "inside": 0,
+      "outside": 10,
+      "landline_phone": 10
+    },
+    "sms_price": 25,
+    "parameters": {
+      "favorite_numbers": 10,
+      "tariffing": "per_1_minute",
+      "connection_payment": 10
+    }
+  }
+]
+
