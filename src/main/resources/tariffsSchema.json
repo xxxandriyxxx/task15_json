@@ -1,0 +1,136 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "array",
+  "title": "The Root Schema",
+  "items": {
+    "$id": "#/items",
+    "type": "object",
+    "title": "The Items Schema",
+    "required": [
+      "tariffNo",
+      "name",
+      "operator_name",
+      "payroll",
+      "call_prices",
+      "sms_price",
+      "parameters"
+    ],
+    "properties": {
+      "tariffNo": {
+        "$id": "#/items/properties/tariffNo",
+        "type": "integer",
+        "title": "The TariffNo Schema",
+        "minimum": 0.0
+      },
+      "name": {
+        "$id": "#/items/properties/name",
+        "type": "string",
+        "title": "The Name Schema",
+        "default": "",
+        "examples": [
+          "Super Unlim"
+        ]
+      },
+      "operator_name": {
+        "$id": "#/items/properties/operator_name",
+        "type": "string",
+        "title": "The Operator_name Schema",
+        "default": "",
+        "examples": [
+          "Kyivstar"
+        ]
+      },
+      "payroll": {
+        "$id": "#/items/properties/payroll",
+        "type": "number",
+        "title": "The Payroll Schema",
+        "default": 0.0
+      },
+      "call_prices": {
+        "$id": "#/items/properties/call_prices",
+        "type": "object",
+        "title": "The Call_prices Schema",
+        "required": [
+          "inside",
+          "outside",
+          "landline_phone"
+        ],
+        "properties": {
+          "inside": {
+            "$id": "#/items/properties/call_prices/properties/inside",
+            "type": "integer",
+            "title": "The Inside Schema",
+            "default": 0,
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          "outside": {
+            "$id": "#/items/properties/call_prices/properties/outside",
+            "type": "integer",
+            "title": "The Outside Schema",
+            "default": 0,
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          "landline_phone": {
+            "$id": "#/items/properties/call_prices/properties/landline_phone",
+            "type": "integer",
+            "title": "The Landline_phone Schema",
+            "default": 0,
+            "minimum": 0.0,
+            "maximum": 100.0
+          }
+        }
+      },
+      "sms_price": {
+        "$id": "#/items/properties/sms_price",
+        "type": "integer",
+        "title": "The Sms_price Schema",
+        "default": 0,
+        "minimum": 0.0,
+        "maximum": 100.0
+      },
+      "parameters": {
+        "$id": "#/items/properties/parameters",
+        "type": "object",
+        "title": "The Parameters Schema",
+        "required": [
+          "favorite_numbers",
+          "tariffing",
+          "connection_payment"
+        ],
+        "properties": {
+          "favorite_numbers": {
+            "$id": "#/items/properties/parameters/properties/favorite_numbers",
+            "type": "integer",
+            "title": "The Favorite_numbers Schema",
+            "default": 0,
+            "minimum": 0.0
+          },
+          "tariffing": {
+            "$id": "#/items/properties/parameters/properties/tariffing",
+            "type": "string",
+            "enum": [
+              "per_1_minute",
+              "per_15_seconds"
+            ],
+            "title": "The Tariffing Schema",
+            "examples": [
+              "per_1_minute",
+              "per_15_seconds"
+            ]
+          },
+          "connection_payment": {
+            "$id": "#/items/properties/parameters/properties/connection_payment",
+            "type": "number",
+            "title": "The Connection_payment Schema",
+            "default": 0.0,
+            "minimum": 0.0
+          }
+        }
+      }
+    }
+  }
+}
