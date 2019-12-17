@@ -5,15 +5,18 @@ import com.epam.model.comparator.PayrollComparator;
 import com.epam.model.json.GsonParser;
 import com.epam.model.json.JSONValidator;
 import com.epam.model.json.JacksonParser;
-import com.github.fge.jsonschema.core.exceptions.ProcessingException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 public class BusinessLogic implements Model {
 
+    private Logger logger;
     private File jsonFile;
     private File schemaFile;
     private File newJsonFile;
@@ -21,6 +24,7 @@ public class BusinessLogic implements Model {
     private File jsonSortedByPayrollFile;
 
     public BusinessLogic() {
+        logger = LogManager.getLogger(BusinessLogic.class);
         jsonFile = new File("src/main/resources/tariffs.json");
         schemaFile = new File("src/main/resources/tariffsSchema.json");
         newJsonFile = new File("src/main/resources/tariffsNew.json");
@@ -31,28 +35,31 @@ public class BusinessLogic implements Model {
     @Override
     public void validate() {
         try {
-            System.out.println(JSONValidator.validate(jsonFile, schemaFile));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ProcessingException e) {
-            e.printStackTrace();
+            logger.trace("Validation result: " + JSONValidator.validate(jsonFile, schemaFile));
+        } catch (Exception e) {
+            logger.error(Arrays.toString(e.getStackTrace()));
         }
     }
 
     @Override
     public void parseByJackson() {
-        JacksonParser jacksonParser = new JacksonParser();
         try {
-            System.out.println(jacksonParser.getTariffList(jsonFile).toString());
+            JacksonParser jacksonParser = new JacksonParser();
+            List<Tariff> tariffs = jacksonParser.getTariffList(jsonFile);
+            for (Tariff t : tariffs) {
+                logger.trace(t.toString());
+            }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(Arrays.toString(e.getStackTrace()));
         }
     }
 
     @Override
     public void parseByGson() {
         List<Tariff> tariffs = parseByGsonHelper();
-        System.out.println(tariffs.toString());
+        for (Tariff t : tariffs) {
+            logger.trace(t.toString());
+        }
     }
 
 
@@ -62,7 +69,7 @@ public class BusinessLogic implements Model {
         try {
             tariffs = gsonParser.getTariffList(jsonFile);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(Arrays.toString(e.getStackTrace()));
         }
         return tariffs;
     }
@@ -70,41 +77,42 @@ public class BusinessLogic implements Model {
 
     @Override
     public void writeToFile() {
-        GsonParser gsonParser = new GsonParser();
-        List<Tariff> tariffs = parseByGsonHelper();
         try {
+            GsonParser gsonParser = new GsonParser();
+            List<Tariff> tariffs = parseByGsonHelper();
             gsonParser.writeToFile(tariffs, newJsonFile);
+            logger.info("File 'tariffsNew.json' saved successfully!");
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(Arrays.toString(e.getStackTrace()));
         }
     }
 
     @Override
     public void writeToFileSortName() {
-        GsonParser gsonParser = new GsonParser();
-        List<Tariff> tariffs = parseByGsonHelper();
-        NameComparator nameComparator = new NameComparator();
-        tariffs.sort(nameComparator);
         try {
+            GsonParser gsonParser = new GsonParser();
+            List<Tariff> tariffs = parseByGsonHelper();
+            NameComparator nameComparator = new NameComparator();
+            tariffs.sort(nameComparator);
             gsonParser.writeToFile(tariffs, jsonSortedByNameFile);
+            logger.info("File 'tariffsSortName.json' saved successfully!");
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(Arrays.toString(e.getStackTrace()));
         }
     }
 
     @Override
     public void writeToFileSortPayroll() {
-        PayrollComparator payrollComparator = new PayrollComparator();
-        GsonParser gsonParser = new GsonParser();
-        List<Tariff> tariffs = parseByGsonHelper();
-        tariffs.sort(payrollComparator);
         try {
+            PayrollComparator payrollComparator = new PayrollComparator();
+            GsonParser gsonParser = new GsonParser();
+            List<Tariff> tariffs = parseByGsonHelper();
+            tariffs.sort(payrollComparator);
             gsonParser.writeToFile(tariffs, jsonSortedByPayrollFile);
+            logger.info("File 'tariffsSortPayroll.json' saved successfully!");
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(Arrays.toString(e.getStackTrace()));
         }
-
     }
-
 
 }
