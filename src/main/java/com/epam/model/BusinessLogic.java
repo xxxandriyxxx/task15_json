@@ -25,11 +25,11 @@ public class BusinessLogic implements Model {
 
     public BusinessLogic() {
         logger = LogManager.getLogger(BusinessLogic.class);
-        jsonFile = new File("src/main/resources/tariffs.json");
-        schemaFile = new File("src/main/resources/tariffsSchema.json");
-        newJsonFile = new File("src/main/resources/tariffsNew.json");
-        jsonSortedByNameFile = new File("src/main/resources/tariffsSortName.json");
-        jsonSortedByPayrollFile = new File("src/main/resources/tariffsSortPayroll.json");
+        jsonFile = new File("src/main/resources/json/tariffs.json");
+        schemaFile = new File("src/main/resources/json/tariffsSchema.json");
+        newJsonFile = new File("src/main/resources/json/tariffsNew.json");
+        jsonSortedByNameFile = new File("src/main/resources/json/tariffsSortName.json");
+        jsonSortedByPayrollFile = new File("src/main/resources/json/tariffsSortPayroll.json");
     }
 
     @Override
@@ -62,7 +62,6 @@ public class BusinessLogic implements Model {
         }
     }
 
-
     private List<Tariff> parseByGsonHelper() {
         MyGsonParser myGsonParser = new MyGsonParser();
         List<Tariff> tariffs = null;
@@ -73,7 +72,6 @@ public class BusinessLogic implements Model {
         }
         return tariffs;
     }
-
 
     @Override
     public void writeToFile() {
