@@ -8,11 +8,11 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class GsonParser {
+public class MyGsonParser {
 
     private Gson gson;
 
-    public GsonParser() {
+    public MyGsonParser() {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.create();
     }

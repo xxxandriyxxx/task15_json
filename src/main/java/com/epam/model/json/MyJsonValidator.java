@@ -10,7 +10,7 @@ import com.github.fge.jsonschema.main.JsonValidator;
 import java.io.File;
 import java.io.IOException;
 
-public class JSONValidator {
+public class MyJsonValidator {
 
     public static boolean validate(File jsonFile, File schemaFile)
             throws IOException, ProcessingException {

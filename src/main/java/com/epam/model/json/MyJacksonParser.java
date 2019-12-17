@@ -8,11 +8,11 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public class JacksonParser {
+public class MyJacksonParser {
 
     private ObjectMapper objectMapper;
 
-    public JacksonParser() {
+    public MyJacksonParser() {
         objectMapper = new ObjectMapper();
     }
 
